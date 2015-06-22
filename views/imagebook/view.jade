@@ -1,0 +1,24 @@
+extends ../base.jade
+
+block content
+  h3 Image
+    small
+
+  .btn-group
+    a(href="/images/#{book.id}/edit", class='btn btn-primary btn-sm')
+      i.glyphicon.glyphicon-edit
+      span  Edit image
+    a(href="/images/#{book.id}/delete", class='btn btn-danger btn-sm')
+      i.glyphicon.glyphicon-trash
+      span  Delete image
+
+  .media
+    .media-left
+      img.large_image(src=book.imageUrl || "http://placekitten.com/g/128/192")
+    .media-body
+      h4= book.title
+        | &nbsp;
+        small= book.publishedDate
+      h5 By #{book.author||'unknown'}
+      p= book.description
+      small Added by #{book.createdBy}
